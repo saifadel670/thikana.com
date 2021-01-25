@@ -1,0 +1,561 @@
+/*  Customer home page*/
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Noto+Sans+HK:wght@400;700&family=Roboto+Condensed:wght@400;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Lato", sans-serif, "Roboto Condensed";
+  /* line-height: 1; */
+  background: #e9e9e9;
+  /* padding-top: 90px;    */
+  overflow: auto;
+  /* margin: 0 100px ; */
+}
+header {
+  width: 100%;
+  height: 20%;
+}
+
+/* for nav bar size */
+nav {
+  width: 100%;
+  height: 12vh;
+  color: white;
+  background-color: #032412;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-transform: uppercase;
+}
+
+nav.logo {
+  text-align: center;
+  padding-left: 60px;
+}
+.logo img {
+  width: 120px;
+  height: 60px;
+  text-align: center;
+}
+
+nav .menu {
+  width: 40%;
+  font-size: 20px;
+  display: inline-block;
+}
+
+nav .menu a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+.menu input {
+  background: #eee;
+  border: none;
+}
+
+.menu a:hover {
+  cursor: pointer;
+  border-bottom: 2px #fff solid;
+}
+.menu a i {
+  color: black;
+}
+
+.home {
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 25px;
+}
+
+.person {
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 25px;
+}
+.cart {
+  font-size: 25px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.search {
+  width: 100px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.input {
+  height: 28px;
+  width: 300px;
+  border-style: solid;
+  border-radius: 5px;
+  padding-bottom: 5px;
+}
+.thikana {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: white;
+}
+.thikana h2 {
+  font-size: 30px;
+  padding-top: 10px;
+  padding-left: 50px;
+}
+nav .menu1 {
+  width: 40%;
+  font-size: 15px;
+}
+
+nav .menu1 a {
+  text-decoration: none;
+  color: white;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.menu1 a:hover {
+  cursor: pointer;
+  border-bottom: 2px #fff solid;
+}
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+.sticky + .content {
+  padding-top: 60px;
+}
+#videoBG{
+  width: 100%;
+  height: 40%;
+}
+
+#textVdo{
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background:rgb(0,0,0,8.4);
+
+}
+/* main {
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: rgba(238, 241, 245, 0.945);
+} */
+
+/* section h2 {
+  font-size: 40px;
+  font-weight: bold;
+  color: rgb(8, 180, 51);
+  letter-spacing: 3px;
+} */
+section img {
+  width: 600px;
+  height: 200px;
+}
+section h3 {
+  font-size: 25px;
+
+  color: rgb(1, 1, 3);
+  letter-spacing: 3px;
+  text-shadow: 1px 1px 5px black;
+}
+
+section h3:hover {
+  background-color: gray;
+}
+.animate__animated.animate__heartBeat {
+  --animate-duration: 2s;
+  animation-iteration-count: infinite;
+}
+
+.animate__animated.animate__pulse {
+  --animate-duration: 1s;
+  animation-iteration-count: infinite;
+}
+
+.small-container {
+  max-width: auto;
+  height: auto;
+  margin: auto;
+  padding-top: 20px;
+  padding-right: 10px;
+  padding-left: 10px;
+  background-color: rgba(238, 241, 245, 0.945);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.col-3 {
+  flex-basis: 22%;
+  padding: 10px;
+  /* min-width: 200px; */
+  margin-bottom: 5px;
+  margin-top: 50px;
+  margin-left: 33px;
+
+  border-color: rgb(236, 224, 224);
+  background-color: white;
+  border-style: solid;
+  border-radius: 6px;
+
+  transition: transform 0.5s;
+}
+.col-3:hover {
+  transform: translate(-5px);
+}
+.col-3 img {
+  width: 100%;
+  height:200px;
+  width:200px;
+}
+
+h4 {
+  color: rgb(14, 5, 5);
+  font-weight: normal;
+  font-size: 18px;
+}
+.col-3 p {
+  font-size: 16px;
+  display: inline-block;
+}
+.cartplus {
+  /* float: right; */
+  display: inline-block;
+  padding-left: 160px;
+}
+
+.title {
+  line-height: 1.6rem;
+  color: black;
+  font-size: 40px;
+  padding-left: 40px;
+}
+
+.productSearch {
+  float: right;
+  display: inline;
+}
+.t-view{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between ;
+}
+.view {
+  float: right;
+  width: 100px;
+  height: 30px;
+  background-color: rgb(214, 18, 18);
+  border-radius: 5px;
+  margin-left: 15px;
+  
+}
+.view:hover {
+  background-color: gray;
+}
+
+.searchProduct {
+  background-color: rgb(49, 43, 43);
+  color: white;
+  width: 60px;
+  height: 30px;
+  display: inline-block;
+  border-radius: 5px;
+}
+.search1a {
+  text-align: center;
+  margin: 35%;
+}
+.sameSearch {
+  margin-top: 5px;
+}
+
+.inputProduct {
+  width: 200px;
+  height: 30px;
+  border-radius: 5px;
+}
+.price {
+  color: red;
+}
+.sameline {
+  display: inline-block;
+}
+
+.projectViewMore {
+  color: blue;
+}
+.projectViewMore:hover {
+  background-color: red;
+}
+
+.contact {
+  text-align: center;
+  background-color: black;
+  color: white;
+  height: 210px;
+
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.contact h3 {
+  color: rgb(10, 10, 175);
+  font: bold;
+}
+.contact img {
+  width: 70px;
+  height: 40px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.col-4 {
+  flex-basis: 25%;
+  padding: 10px;
+  min-width: 200px;
+  margin-bottom: 50px;
+  margin-top: 50px;
+  margin-left: 2px;
+  margin-right: 2px;
+
+  border-color: rgb(236, 224, 224);
+  background-color: black;
+  border-style: solid;
+  border-radius: 6px;
+  color: white;
+
+  transition: transform 0.5s;
+}
+.col-4:hover {
+  transform: translate(-5px);
+}
+.col-4 img {
+  width: 100%;
+}
+.col-4 h2 {
+  color: white;
+}
+.col-4 h4 {
+  color: blue;
+}
+
+.col-4 p {
+  font-size: 16px;
+  display: inline-block;
+}
+
+.Request {
+  background-color: yellowgreen;
+  margin-left: 20px;
+  width: 80px;
+}
+
+.Request:hover {
+  background-color: gray;
+}
+.moreInfo {
+  background-color: rgb(0, 238, 255);
+  margin-left: 20px;
+  width: 80px;
+}
+
+.moreInfo:hover {
+  background-color: gray;
+}
+
+/* cart page*/
+
+.small-containerCartPage {
+  margin: 70px auto;
+  width: 900px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.cart-info {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#Pinfo {
+  padding-left: 15px;
+}
+th {
+  text-align: left;
+  padding: 5px;
+  color: white;
+  background: rgb(12, 124, 109);
+  font-weight: normal;
+}
+td {
+  padding: 10px 5px;
+}
+td input {
+  width: 60px;
+  height: 30px;
+  padding: 5px;
+}
+td a {
+  color: rgb(12, 124, 21);
+  font-size: 12px;
+}
+td img {
+  height: 120px;
+  width: 120px;
+  margin-right: 10px;
+}
+.total-price {
+  display: flex;
+  justify-content: flex-end;
+}
+.total-price table {
+  border-top: 5px solid rgb(12, 124, 109);
+  width: 100%;
+  max-width: 300px;
+  margin-right: 210px;
+}
+td:last-child {
+  text-align: right;
+}
+th:last-child {
+  text-align: right;
+}
+
+.purchase {
+  height: 50px;
+  width: 160px;
+  background-color: rgb(12, 124, 109);
+  margin-left: 920px;
+  font-size: 25px;
+}
+.purchase:hover {
+  background-color: gray;
+}
+
+/* product Single page*/
+
+.description {
+  color: rgb(9, 150, 9);
+}
+.single {
+  margin-left: 200px;
+  margin-right: 200px;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  width: 900px;
+  height: auto;
+  border: solid;
+
+  background-color: white;
+  border-radius: 10px;
+  border-color: thistle;
+}
+
+.single img {
+  width: 40%;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+.singleProduct {
+  float: right;
+  padding-right: 30px;
+  padding-top: 60px;
+  padding-right: 150px;
+}
+.single h3 {
+  color: red;
+}
+
+/* project Single page*/
+.singleProject {
+  float: right;
+  padding-top: 2px;
+}
+
+.singleProject p {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-right: 30px;
+}
+.single select {
+  width: 50px;
+}
+
+/* project additional requirments page*/
+.additional {
+  text-align: center;
+  padding-top: 20px;
+}
+
+.additional input {
+  width: 500px;
+  height: 150px;
+}
+
+.additional button {
+  width: 110px;
+  height: 40px;
+  background-color: green;
+  font-size: 20px;
+  margin-top: 20px;
+  margin-bottom: 22px;
+}
+
+/* engineer request form page*/
+.request {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.request input {
+  width: 400px;
+  height: 30px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+.request button {
+  width: 110px;
+  height: 40px;
+  background-color: green;
+  font-size: 20px;
+  margin-top: 20px;
+}
+.signUp {
+  padding-top: 40px;
+  text-align: center;
+}
+.signUp input {
+  width: 300px;
+  height: 30px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.signUp button {
+  width: 110px;
+  height: 40px;
+  background-color: green;
+  font-size: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}

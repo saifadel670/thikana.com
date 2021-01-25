@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Thikana | Sign in | Register</title>
+
+        <!-- font awesome  -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+            integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+            crossorigin="anonymous" />
+
+        <!-- Latest compiled and minified CSS -->
+        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+
+        <!-- jquery -->
+
+        <!-- css  -->
+        <link rel="stylesheet" href="inUp.css">
+    </head>
+
+    <body>
+
+        <div class="container" id="container">
+
+            <!-- sign up form  -->
+
+            <div class="form-container sign-up-container" id="sign-up">
+
+                <form>
+                <h1>Create Account</h1>
+
+                <div class=" social-container">
+                    <a href="#" class="social"> <i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+            </div>
+
+            <div class="form-group">
+                <input type="text" class="form-control" id="upName" placeholder="Name">
+            </div>
+
+            <div class="form-group">
+                <input type="email" class="form-control" id="upEmail" placeholder="Email">
+            </div>
+
+            <div class="form-group">
+                <input type="password" class="form-control" id="upPassword" placeholder="Password">
+            </div>
+
+            <div class="form-group">
+                <input type="password" class="form-control" id="upConfirmPassword" placeholder="Confirm Password">
+            </div>
+
+            <div class="form-group">
+                <select name="UserType" id="upUserType" required>
+                    <option value="Customer" id="up0">Customer</option>
+                    <option value="Seller" id="up1">Seller</option>
+                    <option value="Engineer" id="up2">Engineer</option>
+                </select>
+            </div>
+
+            <button onclick="creatAccount()" id="afterSignUp">Sign Up</button>
+            </form>
+        </div>
+
+
+        <!-- sign in form  -->
+
+        <div class="form-container sign-in-container" id="sign-in">
+
+            <form >
+                <h1>Sign In</h1>
+
+                <div class="social-container">
+                    <a href="#" class="social"> <i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                </div>
+
+                <div class="form-group">
+                    <input type="email" class="form-control" id="inEmail" placeholder="Email">
+                </div>
+
+                <div class="form-group">
+                    <input type="password" class="form-control" id="inPassword" placeholder="Password">
+                </div>
+
+                <div class="form-group">
+                    <select name="UserType" id="inUserType" required>
+                        <option value="Customer" id="in0">Customer</option>
+                        <option value="Seller" id="in1">Seller</option>
+                        <option value="Engineer" id="in2">Engineer</option>
+                    </select>
+                </div>
+
+                <button  id="signInButtonOn" >Sign In</button>
+
+            </form>
+
+        </div>
+        <!-- overlay  -->
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1 class='layer'>Welcome Back</h1>
+                    <p>To keep connected please Login</p>
+                    <button class="ghost" id="login">Sign In</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1 class='layer'>Hello, Friend!</h1>
+                    <p>Enter few details and you are ready to Go!!</p>
+                    <button class="ghost" id="register">Sign Up</button>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        </div>
+
+
+        <!-- Latest compiled and minified JavaScript -->
+        <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script> -->
+        <!-- scipt  -->
+        <script>
+            const signUpbtn = document.getElementById('register');
+            const signInbtn = document.getElementById('login');
+            const container = document.getElementById('container');
+
+            // const afterSignUp = document.getElementById('afterSignUp');
+            // afterSignUp.addEventListener('click', () =>
+            //     container.classList.add('right-panel-active'));
+
+            signUpbtn.addEventListener('click', () =>
+                container.classList.add('right-panel-active'));
+
+            signInbtn.addEventListener('click', () =>
+                container.classList.remove('right-panel-active'));
+        </script>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+        <script src="script/user_api.js"></script>
+        <!-- <script src="/script/script.js"></script> -->
+        <script src="/script/script.js"></script>
+    </body>
+
+</html>

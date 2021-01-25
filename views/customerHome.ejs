@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer | Thikana</title>
+    
+    <!--bootstrap-->
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <!--font awasame cdn-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+
+    <!-- material Icon -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" 
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="/public/styleE.css">
+    <link rel="stylesheet" href="/public/style.css">
+ 
+</head>
+<body >
+
+    <nav class="navbar navbar-custom navbar-dark navbar-expand-lg d-flex flex-row"
+    style="background-color: #032412;">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <img src="/client/images/thikana1.JPG" width="200" height="100"
+                class=" d-inline-block align-center rounded-circle" alt="Logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav d-flex mr-auto w-100 justify-content-end">
+                <li class="nav-item active">
+                    <a class="nav-link text-decoration-none" id="allProduct">PRODUCT  <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link text-decoration-none" id="allProject">PROJECT  <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link text-decoration-none" id="allEngineer">ENGINEER  <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link text-decoration-none" id="dashboard">DASHBOARD  <span class="sr-only">(current)</span>
+                  </a>
+              </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="logout">Logout</a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</nav>
+<div class="allProductView">
+  <div class="d-flex flex-wrap">
+    <%for(var j=0; j<product.length; j++){%>
+      <div class="card">
+          <img class="card-img-top" src="<%-product[j].image%>"
+              alt="Card image cap">
+          <div class="card-body">
+              <h5 class="card-title name"><%=product[j].name%></h5>
+              <p class="id" style="display: none;"><%=product[j]._id%></p>
+          </div>
+          <ul class="list-group list-group-flush">
+              <li class="list-group-item price"><%= product[j].price%> BDT</li>
+          </ul>
+          <div class="card-body">
+              <a  class="card-link productADD" id="<%-j%>">Add Card</a>
+          </div>
+      </div> 
+    <%}%> 
+  </div> 
+</div> 
+
+
+<div class="allProjectView">
+  <div class="d-flex flex-wrap">
+    <%for(var j=0; j<project.length; j++){%>
+        <div class="card">
+            <img class="card-img-top" src="<%-project[j].image%>"
+                alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title prjectName"><%=project[j].name%></h5>
+            </div>
+            <p class="projectEngineerID" style="display: none;"><%= project[j].engineerId%></p>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Designer by <%= project[j].engineerName%></li>
+                <li class="list-group-item">Approx. cost <%-project[j].cost%> BDT.</li>
+            </ul>
+            <div class="card-body">
+                <a  class="card-link projectRequest" id="<%-j%>" data-toggle="tooltip" data-placement="bottom" title="Request to engineer to know more">REQUEST</a>
+            </div>
+        </div>
+    <%}%> 
+  </div> 
+</div>
+
+
+<div class="allEngineerView">
+  <div class="d-flex flex-wrap">
+    <%for(var j=0; j<engineer.length; j++){%>
+        <div class="card">
+            <img class="card-img-top" src="<%- engineer[j].image %>"
+                alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title"><%= engineer[j].name %></h5>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><%= engineer[j].description %></li>
+            </ul>
+            <div class="card-body">
+                <p class="path" style="display: none;"><%-engineer[j]._id%>/<%-customer._id%>/<%-customer.name%></p>
+                <a id="<%-j%>" class="card-link requestEngineer" >Send Request</a>
+            </div>
+      </div> 
+    <%}%> 
+  </div> 
+</div>
+
+
+  
+<div class="landingView"  >         
+            <section>
+                <video id="videoBG" poster="/client/images/background.png" autoplay muted loop >
+                  <source src="/client/images/backgroundVideo.mp4" type="video/mp4">
+                </video>               
+            </section>
+
+
+
+    <!-- product view -->
+    <br>
+     <span class="t-view">
+      <h2 class="title"> Products </h2>
+     </span> 
+
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <%for(var i=0; i<product.length; i+=5){%>
+                <% if(i==0){ %>
+                    <div class="carousel-item active">
+                        <div class="d-flex flex-wrap">
+                <%}else{%>
+                    <div class="carousel-item ">
+                        <div class="d-flex flex-wrap">
+                <%}%>
+
+              <%for(var j=i; j<i+5 && j<product.length; j++){%>
+                <div class="card">
+                    <img class="card-img-top" src="<%-product[j].image%>"
+                        alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title name"><%=product[j].name%></h5>
+                        <p class="id" style="display: none;"><%=product[j]._id%></p>
+                        <p class="quantity" style="display: none;"><%=product[j].quantity%></p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item price"><%= product[j].price%> BDT</li>
+                    </ul>
+                    <div class="card-body">
+                        <a  class="card-link productADD" id="<%-j%>">Add Card</a>
+                    </div>
+                </div> 
+              <%}%>               
+            </div>
+        </div>
+        <%}%>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div> 
+    
+    
+    <!-- Project view -->
+    <span class="t-view">
+      <h2 class="title"> PROJECT </h2>
+     </span> 
+
+    <div id="carouselExampleControlsProject" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <%for(var i=0; i<project.length; i+=5){%>
+                <% if(i==0){ %>
+                    <div class="carousel-item active">
+                        <div class="d-flex flex-wrap">
+                <%}else{%>
+                    <div class="carousel-item ">
+                        <div class="d-flex flex-wrap">
+                <%}%>
+
+              <%for(var j=i; j<i+5 && j<project.length; j++){%>
+                <div class="card">
+                    <img class="card-img-top" src="<%-project[j].image%>"
+                        alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title"><%=project[j].name%></h5>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Designer by <%=project[j].engineerName%></li>
+                        <li class="list-group-item">Approx. cost <%-project[j].cost%> BDT.</li>
+                    </ul>
+                    <div class="card-body">
+                        <a  class="card-link projectRequest" id="<%-j%>" data-toggle="tooltip" data-placement="bottom" title="Request to engineer to know more">REQUEST</a>
+                    </div>
+                </div> 
+              <%}%>               
+            </div>
+        </div>
+        <%}%>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleControlsProject" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleControlsProject" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div> 
+
+
+    <!-- Engineer view -->
+    <span class="t-view">
+      <h2 class="title"> ENGINEER </h2>
+     </span> 
+
+    <div id="carouselExampleControlsEngineer" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <%for(var i=0; i<engineer.length; i+=5){%>
+                <% if(i==0){ %>
+                    <div class="carousel-item active">
+                        <div class="d-flex flex-wrap">
+                <%}else{%>
+                    <div class="carousel-item ">
+                        <div class="d-flex flex-wrap">
+                <%}%>
+
+              <%for(var j=i; j<i+5 && j<engineer.length; j++){%>
+                <div class="card">
+                    <img class="card-img-top" src="<%- engineer[j].image %>"
+                        alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= engineer[j].name %></h5>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><%= engineer[j].description %></li>
+                    </ul>
+                    <div class="card-body">
+                        <p class="path" style="display: none;">request/+<%-engineer[j]._id%>/<%-customer._id%>/<%-customer.name%></p>
+                        <a id="<%-j%>" class="card-link requestSend" >Send Request</a>
+                    </div>
+                </div> 
+              <%}%>               
+            </div>
+        </div>
+        <%}%>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleControlsEngineer" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleControlsEngineer" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div> 
+</div>
+
+
+  
+
+<div class="customerDashboardView">
+  <section class="container-fluid dashboard">
+    <div class="row justify-content">
+        <div class="user-header">
+            <div class="user-img">
+                <img id="dp" src="<%- customer.image %>" class="img-fluid cirlce mx-auto d-block" width="150"
+                    border-radius='50%' alt="profile-photo">
+            </div>
+            <div class="user-info">
+                <h3 id="user-name"><%= customer.name %></h3>
+                <p class="phone" id="phone">
+                    <i class="fa fa-phone"></i>
+                    <%= customer.phoneNumber %>
+                </p>
+                <p id="mail">
+                    <i class="fa fa-envelope"></i>
+                    <%= customer.email %>
+                </p>
+                <div class='address' id="address">
+                    <p id="area"><%= customer.address %>,</p>
+                    <span class="country">
+                        Bangladesh
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <div class="row d-flex justify-content-between">
+        <!--  -->
+        <div class="col-lg-4 col-md-4 col-sm-4 ">
+            <p id="userID" style="display: none;"><%=customer._id.toString()%></p>
+        </div>
+
+        <div class="col-lg-7 col-md-7 col-sm-7">
+
+            <div class="container-fluid" id="right-side ">
+
+                <div class=" container-fluid" id="bar">
+                    <ul>
+                        <li onclick="tabs(0)" class=" user-cart active">CART</li>
+                        <li onclick="tabs(1)" class=" user-history">SERVICE</li>
+                        <li onclick="tabs(2)" class=" user-profile">PROFILE</li>
+                    </ul>
+                </div>
+
+                <div class="container-fluid dashboard-body">
+                    <!-- -->
+                 
+
+
+
+                    <div class="cart tab" >
+                      <table class="table">
+                        <thead class="thead-dark">
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Product</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Unit Price</th>
+                            <th scope="col">Total Price</th>
+                          </tr>
+                        </thead>
+                        <tbody id="cartInfo">
+
+                        </tbody>
+                      </table>
+                      <h3 id="total"></h3>  
+                      <button type="button" id="payment" class="btn btn-success">PAYMENT</button>                    
+                    </div>
+
+                    <div class="service tab">
+                        <table class="table table-hover">
+                            <tbody>
+                              <%for(var i=0; i<message.length; i++){%>
+                                <tr >
+                                    <td><%= message[i].senderName%></td>
+                                    <p class="receiverClient" style="display: none;"><%=message[i].sender%></p>
+                                    <td> 
+                                 <!-- <div class="container">  -->
+                                    <div id="notification">
+                                        <a  type="button" data-toggle="modal" data-target="#msgModal">
+                                        <i class="material-icons">chat</i></a>
+                                        <div class="modal fade bd-example-modal-sm" id="msgModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                                        aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered modal-sm"    role="document">
+                                            <div class="modal-content">
+                                            
+                                                <div class="modal-body">
+                                                    <p><%=message[i].content%></p>
+                                                            <br>
+                                                    <textarea class="form-control clientMSG"  placeholder="Write yourself"></textarea>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+
+                                                    <button type="button" class="btn btn-primary sendClientMSg" id="<%-i%>">SEND</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <!-- </div> -->
+                                    </td>
+                                    <td><a type="button"><i class="material-icons messageRow" id="<%-message[i]._id%>"">cancel</i></a></td>
+                                </tr>
+                                
+                              <%}%>
+                            </tbody>
+                        </table>
+                  </div>
+
+                    
+                
+                
+                  <div class="profile tab">
+                    <div class="container-fluid">
+                        <form id="profile-form">
+                            <div class="form-group">
+                                <label for="inputGroupFile01">Upload New Photo</label>
+                                <!-- <input type="text" class="form-control" id="inputAddress2" placeholder=""> -->
+
+                                <div class="input-group mb-3">
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="inputGroupFile01">
+                                        <label class="custom-file-label" for="inputGroupFile01">Choose
+                                            file</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="fName">First Name</label>
+                                    <input type="text" class="form-control" id="fName"
+                                        placeholder="First name">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="lName">Last Name</label>
+                                    <input type="text" class="form-control" id="lName"
+                                        placeholder="Last name">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="input-Phone-Number">Phone Number</label>
+                                <input type="number" class="form-control" id="input-Phone-Number"
+                                    placeholder="01*********">
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="newPassword">New Password</label>
+                                    <input type="password" class="form-control" id="newPassword"
+                                        placeholder="New Password">
+                                </div>
+
+                                <div class="form-group col-md-6">
+                                    <label for="confirmPassword">Confirm Password</label>
+                                    <input type="password" class="form-control" id="confirmPassword"
+                                        placeholder="Confirm Password">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputAddress">Address</label>
+                                <input type="text" class="form-control" id="inputAddress"
+                                    placeholder="House, Road, Sector, Area">
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="inputCity">City</label>
+                                    <input type="text" class="form-control" id="inputCity">
+                                </div>
+
+                                <div class="form-group col-md-4">
+                                    <label for="inputZip">Zip</label>
+                                    <input type="text" class="form-control" id="inputZip">
+                                </div>
+                                <!-- description -->
+
+                                <div class="form-group col-md-10">
+                                    <label for="inputDetails">Details</label>
+                                    <textarea class="form-control" id="inputDetails" placeholder="Write yourself"></textarea>
+                                    <!-- <input type="text" class="form-control" id="inputDetails"> -->
+                                </div>
+                               
+                            </div>
+                            <div class="form-group">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="gridCheck">
+                                    <label class="form-check-label" for="gridCheck">
+                                        Confirm
+                                    </label>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary" id="profileEdit">Save
+                                Changes</button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+
+    </div>
+
+    </div>
+
+
+</section>
+  
+</div>
+
+<div class="contact">
+  <h1> Contact Us </h1>
+  <h2>thikana@gmail.com</h2>
+  <br>
+  <h3>www.thikana.com  <br><br></h3>
+
+  <img src="/client/images/brand1.jpg"> 
+  <img src="/client/images/brand2.jpg"> 
+  <img src="/client/images/brand5.jpg"> 
+  <img src="/client/images/brand4.jpg"> 
+</div>
+  
+
+
+  <!-- bootstrap scripts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <!-- bootstrap ends  -->
+
+  <!-- js path -->
+ <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+ <script src="/script/user_api.js"></script>
+ <script src="/script/script.js"></script>
+
+ <script>
+  $('#bar ul li').click(function () {
+          $(this).addClass('active').siblings().removeClass('active');
+      })
+      const tabBtn = document.querySelectorAll('#bar');
+      const tab = document.querySelectorAll('.dashboard-body>.tab');
+
+      function tabs(panelIndex) {
+          tab.forEach(function (node) {
+              node.style.display = 'none';
+          })
+          tab[panelIndex].style.display = 'block';
+      }
+      tabs(0);
+</script>
+
+</body>
+</html>
